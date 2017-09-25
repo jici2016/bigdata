@@ -37,7 +37,7 @@ public class WordCountRunner {
 		   job.setOutputKeyClass(Text.class);
 		   job.setOutputValueClass(LongWritable.class);
 		   
-		   FileInputFormat.setInputPaths(job, "/wc/in");
+		   FileInputFormat.setInputPaths(job, "hdfs://liuming2hadoop:9000/wc/in");
 		   
 		   FileSystem fs = FileSystem.get(conf);
 		   if(  fs.exists(new Path("/wc/out"))){
