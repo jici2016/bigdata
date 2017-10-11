@@ -23,7 +23,7 @@ public class WordCountRunner {
 		Job job = null;
 		try {
 			
-		   conf.set("mapreduce.job.jar", "wc.jar");
+//		   conf.set("mapreduce.job.jar", "wc.jar");
 		   job	 = Job.getInstance(conf );
 
 		  
@@ -32,6 +32,10 @@ public class WordCountRunner {
 		   job.setMapperClass(WordCountMapper.class);
 		   job.setMapOutputKeyClass(Text.class);
 		   job.setMapOutputValueClass(LongWritable.class);
+		   
+		   
+		   //2017年10月2日 添加combiner,这个功能类似于reducer，但是是运行在本机的
+		   job.setCombinerClass(WordCountReducer.class);
 		   
 		   job.setReducerClass(WordCountReducer.class);
 		   job.setOutputKeyClass(Text.class);

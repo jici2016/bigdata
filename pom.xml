@@ -9,6 +9,7 @@
 		<module>hdfs</module>
 		<module>rpc</module>
 		<module>mapreduce</module>
+		<module>flowcount</module>
 	</modules>
 
 	<dependencies>
